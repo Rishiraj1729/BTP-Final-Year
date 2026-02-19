@@ -1,0 +1,2 @@
+# Force LF for requirements so pip on Render/Linux gets clean lines
+requirements.txt text eol=lf
