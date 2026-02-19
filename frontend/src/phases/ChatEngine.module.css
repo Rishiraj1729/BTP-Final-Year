@@ -1,0 +1,205 @@
+.layout { flex:1; display:flex; overflow:hidden; }
+
+/* ── Chat panel ── */
+.chatPanel {
+  flex:1; display:flex; flex-direction:column; min-width:0;
+  border-right:1px solid var(--border);
+}
+
+/* ── Header ── */
+.chatHeader {
+  padding:12px 18px; display:flex; align-items:center; justify-content:space-between;
+  background:var(--surface); border-bottom:1px solid var(--border); flex-shrink:0;
+}
+.agentInfo    { display:flex; align-items:center; gap:12px; }
+.agentAvatar  {
+  width:36px; height:36px; border-radius:50%;
+  background:rgba(67,97,238,.12); border:1.5px solid rgba(67,97,238,.25);
+  display:flex; align-items:center; justify-content:center;
+}
+.agentName   { font-size:.88rem; font-weight:700; color:var(--text); }
+.agentStatus { font-size:.72rem; font-weight:600; }
+.headerMeta  { display:flex; align-items:center; gap:10px; }
+.upgradedTag { font-size:.68rem; font-weight:800; background:rgba(245,158,11,.12); color:var(--orange); border:1px solid rgba(245,158,11,.25); padding:2px 9px; border-radius:99px; }
+.scoreChip   { font-size:.72rem; font-weight:700; padding:3px 10px; border-radius:99px; border:1px solid; }
+
+/* ── Messages ── */
+.messages {
+  flex:1; overflow-y:auto; padding:20px; display:flex; flex-direction:column; gap:12px;
+}
+.msgWrap { display:flex; align-items:flex-end; gap:10px; animation:fadeUp .25s ease; }
+.msgWrapAI   { justify-content:flex-start; }
+.msgWrapUser { justify-content:flex-end; }
+.msgWrapSys  { justify-content:center; }
+
+.msgAvatar {
+  width:30px; height:30px; flex-shrink:0; border-radius:50%;
+  background:rgba(67,97,238,.1); border:1px solid rgba(67,97,238,.2);
+  display:flex; align-items:center; justify-content:center; margin-bottom:2px;
+}
+.bubble {
+  max-width:72%; border-radius:16px; padding:11px 15px;
+  font-size:.875rem; line-height:1.7; word-break:break-word;
+}
+.bubbleAI {
+  background:var(--surface2); border:1px solid var(--border);
+  border-bottom-left-radius:4px; color:var(--text);
+}
+.bubbleUser {
+  background:linear-gradient(135deg,var(--accent),#6c5dd3);
+  color:#fff; border-bottom-right-radius:4px;
+}
+.bubbleSys {
+  background:rgba(67,97,238,.07); border:1px solid rgba(67,97,238,.12);
+  color:var(--text3); font-size:.78rem; padding:6px 16px; border-radius:99px; max-width:90%;
+}
+.bubble strong { font-weight:700; }
+.bubble em     { color:var(--cyan); font-style:normal; }
+
+/* Typing dots */
+.dots { display:flex; gap:5px; padding:2px 4px; }
+.dots span { width:6px; height:6px; border-radius:50%; background:var(--text3); animation:pulse 1.2s ease-in-out infinite; }
+.dots span:nth-child(2) { animation-delay:.15s; }
+.dots span:nth-child(3) { animation-delay:.3s; }
+
+/* ── Audio upload banner ── */
+.audioBanner {
+  margin:0 14px 0; padding:14px 16px;
+  background:var(--surface2); border:1.5px solid var(--border2); border-radius:var(--radius);
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  animation:fadeUp .2s ease; flex-shrink:0;
+}
+.audioBannerLeft  { display:flex; align-items:center; gap:12px; }
+.audioBannerTitle { font-size:.85rem; font-weight:700; color:var(--text); }
+.audioBannerSub   { font-size:.74rem; color:var(--text3); margin-top:2px; }
+.audioBannerRight { display:flex; align-items:center; gap:8px; flex-shrink:0; }
+
+.uploadFileBtn {
+  display:flex; align-items:center; gap:6px;
+  background:rgba(67,97,238,.1); border:1px solid rgba(67,97,238,.3); color:var(--accent2);
+  padding:7px 16px; border-radius:var(--radius-sm); font-size:.82rem; font-weight:700;
+  cursor:pointer; transition:all .15s;
+}
+.uploadFileBtn:hover { background:rgba(67,97,238,.2); }
+
+.fileChip { font-size:.72rem; background:rgba(16,185,129,.08); border:1px solid rgba(16,185,129,.2); color:var(--green); padding:3px 10px; border-radius:99px; font-weight:600; max-width:140px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+
+.closeBannerBtn { background:none; border:1px solid var(--border); color:var(--text3); width:26px; height:26px; border-radius:4px; cursor:pointer; font-size:.75rem; }
+.closeBannerBtn:hover { border-color:var(--red); color:var(--red); }
+
+/* ── Input area ── */
+.inputArea {
+  padding:12px 14px 14px; background:var(--surface); border-top:1px solid var(--border);
+  display:flex; flex-direction:column; gap:8px; flex-shrink:0;
+}
+
+/* Mic error banner */
+.micErrorBar {
+  background:rgba(239,68,68,.08); border:1px solid rgba(239,68,68,.25); border-radius:var(--radius-sm);
+  padding:8px 12px; color:#fca5a5; font-size:.8rem; font-weight:500;
+  display:flex; justify-content:space-between; align-items:center;
+  animation:fadeUp .2s ease;
+}
+.micErrorBar button { background:none; color:#fca5a5; font-size:.8rem; padding:0 4px; cursor:pointer; }
+
+/* Listening indicator above textarea */
+.listeningBadge {
+  display:flex; align-items:center; gap:8px;
+  font-size:.75rem; font-weight:700; color:var(--red);
+  padding:5px 0 2px;
+}
+
+.inputRow { display:flex; gap:8px; align-items:flex-end; }
+
+.chatInput {
+  flex:1; background:var(--surface2); border:1.5px solid var(--border);
+  border-radius:var(--radius); color:var(--text); padding:10px 14px;
+  font-size:.88rem; resize:none; outline:none; line-height:1.55;
+  transition:border-color .2s; font-family:inherit;
+}
+.chatInput:focus       { border-color:var(--accent); }
+.chatInput::placeholder { color:var(--text4); }
+
+/* Glowing border when mic is on */
+.chatInputListening {
+  border-color:var(--red) !important;
+  background:rgba(239,68,68,.04) !important;
+  animation:borderPulse 1.2s ease-in-out infinite;
+}
+@keyframes borderPulse {
+  0%,100% { border-color:var(--red); }
+  50%      { border-color:rgba(239,68,68,.4); }
+}
+
+.inputButtons { display:flex; flex-direction:column; gap:6px; }
+
+/* Mic button */
+.micBtn {
+  width:36px; height:36px; border-radius:var(--radius-sm);
+  background:var(--surface3); border:1.5px solid var(--border);
+  color:var(--text2);
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; position:relative; transition:all .15s;
+}
+.micBtn:hover    { border-color:var(--red); color:var(--red); background:rgba(239,68,68,.08); }
+.micBtnActive    {
+  border-color:var(--red) !important; color:var(--red) !important;
+  background:rgba(239,68,68,.15) !important;
+}
+/* Pulsing ring when recording */
+.micRing {
+  position:absolute; inset:-4px; border-radius:var(--radius-sm);
+  border:2px solid var(--red); opacity:.6;
+  animation:micRingPulse 1s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes micRingPulse {
+  0%,100% { opacity:.6; transform:scale(1); }
+  50%      { opacity:.15; transform:scale(1.15); }
+}
+
+/* Audio upload icon button */
+.audioUploadBtn {
+  width:36px; height:36px; border-radius:var(--radius-sm);
+  background:var(--surface3); border:1.5px solid var(--border);
+  color:var(--text2);
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; transition:all .15s;
+}
+.audioUploadBtn:hover { border-color:var(--accent); color:var(--accent2); background:rgba(67,97,238,.08); }
+
+/* Send button */
+.sendBtn {
+  width:36px; height:36px; border-radius:var(--radius-sm);
+  background:var(--accent); color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; transition:all .15s; border:none;
+}
+.sendBtn:hover:not(:disabled) { background:var(--accent2); transform:scale(1.06); }
+.sendBtn:disabled { opacity:.3; cursor:not-allowed; }
+
+/* Mic tip */
+.micTip {
+  font-size:.72rem; color:var(--red); font-weight:600; padding:0 2px;
+  animation:fadeIn .2s ease;
+}
+
+/* Finish early */
+.finishEarlyBtn {
+  background:rgba(16,185,129,.08); border:1px solid rgba(16,185,129,.25); color:var(--green);
+  padding:8px 16px; border-radius:var(--radius-sm); font-size:.8rem; font-weight:700;
+  cursor:pointer; transition:all .2s; text-align:center;
+}
+.finishEarlyBtn:hover { background:rgba(16,185,129,.16); }
+
+/* Wave animation (in listening badge) */
+.wave { display:flex; align-items:center; gap:2px; height:18px; }
+.wave span {
+  width:3px; border-radius:99px; background:var(--red);
+  animation:waveAnim .7s ease-in-out infinite;
+}
+.wave span:nth-child(1){height:4px}
+.wave span:nth-child(2){height:10px;animation-delay:.1s}
+.wave span:nth-child(3){height:18px;animation-delay:.2s}
+.wave span:nth-child(4){height:10px;animation-delay:.1s}
+.wave span:nth-child(5){height:4px}

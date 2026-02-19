@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+.venv/
+venv/
+env/
+.env
+
+# Database & generated files
+prd_store.db
+prd_versions/
+
+# Secrets — never commit
+.env
+
+# Node / frontend
+node_modules/
+frontend/node_modules/
+
+# Vite build output — we DO commit dist so FastAPI can serve it
+# frontend/dist/   <-- intentionally NOT ignored
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*

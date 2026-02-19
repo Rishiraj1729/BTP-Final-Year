@@ -1,0 +1,1307 @@
+{
+  "_meta": {
+    "version": "3.0",
+    "description": "Master Reference Knowledge Base for Agentic Requirements Engine (ARE). Covers all major PRD types, SMART criteria, industry standards, and autonomous decision rules.",
+    "sources": [
+      "IEEE 830 SRS",
+      "ISO/IEC 25010 Quality Model",
+      "BABOK v3",
+      "Google PRD Template",
+      "Atlassian Product Requirements",
+      "AWS Well-Architected Framework",
+      "NIST Cybersecurity Framework"
+    ]
+  },
+  "prd_types": {
+    "saas_web": {
+      "label": "SaaS Web Application",
+      "keywords": [
+        "web app",
+        "saas",
+        "dashboard",
+        "portal",
+        "platform",
+        "subscription"
+      ],
+      "required_gates": [
+        "features",
+        "roles",
+        "performance",
+        "security",
+        "scalability",
+        "availability",
+        "integrations",
+        "data_model",
+        "billing"
+      ],
+      "typical_stack": {
+        "frontend": "React/Vue",
+        "backend": "Node/Python",
+        "db": "PostgreSQL",
+        "auth": "OAuth2"
+      }
+    },
+    "mobile": {
+      "label": "Mobile Application",
+      "keywords": [
+        "mobile",
+        "ios",
+        "android",
+        "app",
+        "smartphone",
+        "react native",
+        "flutter"
+      ],
+      "required_gates": [
+        "features",
+        "roles",
+        "performance",
+        "security",
+        "offline_support",
+        "push_notifications",
+        "device_compatibility",
+        "app_store"
+      ],
+      "typical_stack": {
+        "mobile": "React Native / Flutter",
+        "backend": "REST API",
+        "db": "SQLite + Cloud Sync",
+        "push": "FCM / APNs"
+      }
+    },
+    "api_backend": {
+      "label": "API / Backend Service",
+      "keywords": [
+        "api",
+        "microservice",
+        "backend",
+        "rest",
+        "graphql",
+        "grpc",
+        "service",
+        "webhook"
+      ],
+      "required_gates": [
+        "endpoints",
+        "auth",
+        "rate_limiting",
+        "versioning",
+        "documentation",
+        "sla",
+        "data_contracts"
+      ],
+      "typical_stack": {
+        "framework": "FastAPI/Express/Spring",
+        "auth": "OAuth2/API Keys",
+        "gateway": "Kong/AWS API GW",
+        "docs": "OpenAPI/Swagger"
+      }
+    },
+    "ecommerce": {
+      "label": "E-Commerce Platform",
+      "keywords": [
+        "ecommerce",
+        "store",
+        "shop",
+        "marketplace",
+        "cart",
+        "checkout",
+        "product",
+        "inventory"
+      ],
+      "required_gates": [
+        "catalog",
+        "cart_checkout",
+        "payment",
+        "inventory",
+        "orders",
+        "shipping",
+        "returns",
+        "tax",
+        "pci_compliance"
+      ],
+      "typical_stack": {
+        "platform": "Custom / Shopify / WooCommerce",
+        "payment": "Stripe / PayPal / Razorpay",
+        "search": "Elasticsearch",
+        "cdn": "Cloudflare"
+      }
+    },
+    "fintech": {
+      "label": "FinTech / Financial Platform",
+      "keywords": [
+        "fintech",
+        "banking",
+        "payments",
+        "lending",
+        "investment",
+        "wallet",
+        "loan",
+        "credit",
+        "insurance"
+      ],
+      "required_gates": [
+        "transactions",
+        "kyc_aml",
+        "security",
+        "compliance",
+        "audit_trail",
+        "reconciliation",
+        "reporting",
+        "fraud_detection"
+      ],
+      "compliance": [
+        "PCI-DSS",
+        "SOX",
+        "GLBA",
+        "ISO 27001",
+        "RBI Guidelines"
+      ],
+      "typical_stack": {
+        "db": "PostgreSQL + Kafka",
+        "security": "HSM + AES-256",
+        "auth": "MFA + OAuth2",
+        "audit": "Immutable Logs"
+      }
+    },
+    "healthtech": {
+      "label": "HealthTech / Medical Platform",
+      "keywords": [
+        "health",
+        "medical",
+        "hospital",
+        "patient",
+        "ehr",
+        "emr",
+        "telemedicine",
+        "pharmacy",
+        "doctor"
+      ],
+      "required_gates": [
+        "patient_data",
+        "hipaa",
+        "access_control",
+        "audit_trail",
+        "data_retention",
+        "integrations_hl7"
+      ],
+      "compliance": [
+        "HIPAA",
+        "HITECH",
+        "HL7 FHIR",
+        "ISO 13485",
+        "FDA 21 CFR"
+      ],
+      "typical_stack": {
+        "db": "PostgreSQL (encrypted)",
+        "api": "FHIR R4",
+        "auth": "SMART on FHIR",
+        "infra": "HIPAA-eligible AWS"
+      }
+    },
+    "iot": {
+      "label": "IoT / Connected Devices",
+      "keywords": [
+        "iot",
+        "sensor",
+        "device",
+        "embedded",
+        "real-time",
+        "telemetry",
+        "mqtt",
+        "edge"
+      ],
+      "required_gates": [
+        "device_management",
+        "data_ingestion",
+        "real_time",
+        "offline_sync",
+        "ota_updates",
+        "device_security",
+        "scalability"
+      ],
+      "typical_stack": {
+        "protocol": "MQTT / CoAP",
+        "broker": "AWS IoT / Azure IoT Hub",
+        "timeseries": "InfluxDB / TimescaleDB",
+        "edge": "AWS Greengrass"
+      }
+    },
+    "ai_ml": {
+      "label": "AI / ML Platform",
+      "keywords": [
+        "ai",
+        "machine learning",
+        "ml",
+        "model",
+        "prediction",
+        "nlp",
+        "computer vision",
+        "recommendation",
+        "llm"
+      ],
+      "required_gates": [
+        "model_accuracy",
+        "data_pipeline",
+        "training_infra",
+        "inference_latency",
+        "model_versioning",
+        "bias_fairness",
+        "explainability"
+      ],
+      "typical_stack": {
+        "training": "PyTorch / TensorFlow + GPU",
+        "serving": "TorchServe / Triton",
+        "mlops": "MLflow / Kubeflow",
+        "data": "Apache Spark + S3"
+      }
+    },
+    "cms": {
+      "label": "CMS / Content Platform",
+      "keywords": [
+        "cms",
+        "content",
+        "blog",
+        "media",
+        "publishing",
+        "editorial",
+        "headless cms"
+      ],
+      "required_gates": [
+        "content_types",
+        "workflow",
+        "media_management",
+        "seo",
+        "versioning",
+        "permissions",
+        "delivery"
+      ],
+      "typical_stack": {
+        "headless": "Contentful / Strapi",
+        "delivery": "Next.js / CDN",
+        "search": "Algolia",
+        "media": "Cloudinary"
+      }
+    },
+    "internal_tool": {
+      "label": "Internal Tool / Admin Panel",
+      "keywords": [
+        "internal",
+        "admin",
+        "backoffice",
+        "dashboard",
+        "ops",
+        "tool",
+        "management system"
+      ],
+      "required_gates": [
+        "rbac",
+        "audit_log",
+        "reporting",
+        "data_import_export",
+        "sso",
+        "availability"
+      ],
+      "typical_stack": {
+        "framework": "React Admin / Retool / Custom",
+        "auth": "SSO (SAML/LDAP)",
+        "db": "PostgreSQL",
+        "hosting": "Internal VPN"
+      }
+    },
+    "marketplace": {
+      "label": "Two-Sided Marketplace",
+      "keywords": [
+        "marketplace",
+        "two-sided",
+        "platform",
+        "buyer",
+        "seller",
+        "gig",
+        "freelance",
+        "booking"
+      ],
+      "required_gates": [
+        "buyer_flows",
+        "seller_flows",
+        "matching",
+        "payments_escrow",
+        "ratings_reviews",
+        "trust_safety",
+        "notifications"
+      ],
+      "typical_stack": {
+        "db": "PostgreSQL + Redis",
+        "payments": "Stripe Connect",
+        "search": "Elasticsearch",
+        "messaging": "WebSocket + Queue"
+      }
+    },
+    "gaming": {
+      "label": "Gaming Platform",
+      "keywords": [
+        "game",
+        "gaming",
+        "multiplayer",
+        "leaderboard",
+        "achievement",
+        "in-app purchase",
+        "unity"
+      ],
+      "required_gates": [
+        "game_loop",
+        "multiplayer_sync",
+        "leaderboard",
+        "anti_cheat",
+        "in_app_purchase",
+        "analytics",
+        "cross_platform"
+      ],
+      "typical_stack": {
+        "realtime": "WebSockets / Photon",
+        "backend": "Node + Redis",
+        "db": "MongoDB",
+        "analytics": "GameAnalytics"
+      }
+    },
+    "data_platform": {
+      "label": "Data / Analytics Platform",
+      "keywords": [
+        "analytics",
+        "data warehouse",
+        "etl",
+        "pipeline",
+        "reporting",
+        "bi",
+        "dashboard"
+      ],
+      "required_gates": [
+        "data_ingestion",
+        "transformation",
+        "storage",
+        "query_perf",
+        "visualization",
+        "access_control",
+        "freshness"
+      ],
+      "typical_stack": {
+        "warehouse": "Snowflake / BigQuery",
+        "etl": "Apache Airflow / dbt",
+        "visualization": "Metabase / Grafana",
+        "streaming": "Kafka / Kinesis"
+      }
+    },
+    "food_delivery_website": {
+      "label": "Food Delivery Website",
+      "keywords": [
+        "food",
+        "delivery",
+        "restaurant",
+        "order",
+        "meal"
+      ],
+      "required_gates": [
+        "user_authentication",
+        "order_processing",
+        "payment_gateway",
+        "restaurant_integration",
+        "menu_management",
+        "order_tracking",
+        "customer_support"
+      ]
+    }
+  },
+  "universal_gates": {
+    "project_identity": {
+      "questions": [
+        "What is the ONE thing this product does that no other solution does well?",
+        "Who is the primary user, and what is their biggest pain point today?",
+        "What does success look like in 12 months? Give me a metric."
+      ],
+      "essential_fields": [
+        "project_name",
+        "problem_statement",
+        "target_users",
+        "success_metric"
+      ]
+    },
+    "scope": {
+      "questions": [
+        "What 3 features are absolutely IN scope for v1?",
+        "What are you explicitly NOT building in v1?",
+        "What is the MVP — the minimum that still delivers real value?"
+      ],
+      "essential_fields": [
+        "in_scope_features",
+        "out_of_scope",
+        "mvp_definition"
+      ]
+    },
+    "users_roles": {
+      "questions": [
+        "List all the types of people who will use this system.",
+        "For each user type, what is their ONE primary goal?",
+        "Who has admin / superuser access and what can they do that others cannot?"
+      ],
+      "essential_fields": [
+        "user_types",
+        "primary_goals_per_role",
+        "admin_permissions"
+      ]
+    },
+    "data": {
+      "questions": [
+        "What is the core data entity your system manages? (e.g., 'a user order', 'a patient record')",
+        "How long does data need to be retained? (days / months / years)",
+        "Is any data PII, financial, or medical? (impacts compliance)"
+      ],
+      "essential_fields": [
+        "core_entities",
+        "retention_policy",
+        "data_sensitivity"
+      ]
+    },
+    "integrations": {
+      "questions": [
+        "What third-party services does this MUST connect to? (payments, email, SMS, maps, AI, ERPs...)",
+        "Are there any internal/legacy systems this must sync with?",
+        "Who owns those systems and what APIs/formats do they use?"
+      ],
+      "essential_fields": [
+        "required_integrations",
+        "legacy_connections",
+        "integration_owner"
+      ]
+    },
+    "timeline": {
+      "questions": [
+        "When does v1 need to be live? Is there a hard deadline?",
+        "What is the size of the engineering team?",
+        "What are the phases after v1?"
+      ],
+      "essential_fields": [
+        "go_live_date",
+        "team_size",
+        "roadmap_phases"
+      ]
+    }
+  },
+  "scale_tiers": {
+    "micro": {
+      "max_users": 100,
+      "label": "Micro/Prototype"
+    },
+    "small": {
+      "max_users": 1000,
+      "label": "Small"
+    },
+    "medium": {
+      "max_users": 50000,
+      "label": "Medium"
+    },
+    "large": {
+      "max_users": 500000,
+      "label": "Large"
+    },
+    "enterprise": {
+      "max_users": null,
+      "label": "Enterprise"
+    }
+  },
+  "smart_criteria": {
+    "performance": {
+      "vague_terms": [
+        "fast",
+        "quick",
+        "responsive",
+        "snappy",
+        "real-time",
+        "low latency",
+        "speedy",
+        "instant"
+      ],
+      "required_fields": [
+        "response_time_ms",
+        "percentile",
+        "concurrent_users"
+      ],
+      "template": "The system SHALL respond to [action] within [X] ms at the [Pn] percentile under [N] concurrent users.",
+      "example": "The system SHALL respond to login within 300ms at P95 under 1000 concurrent users.",
+      "follow_up": "What is your target response time in milliseconds? At what percentile (P50/P95/P99)? Under how many concurrent users?"
+    },
+    "security": {
+      "vague_terms": [
+        "secure",
+        "safe",
+        "protected",
+        "encrypted",
+        "private",
+        "hardened"
+      ],
+      "required_fields": [
+        "auth_method",
+        "encryption_standard",
+        "compliance_standard"
+      ],
+      "template": "The system SHALL implement [auth_method], [encryption] at-rest/in-transit, complying with [standard].",
+      "example": "The system SHALL implement OAuth 2.0 + MFA, AES-256 at rest, TLS 1.3 in transit, complying with ISO 27001.",
+      "follow_up": "Which authentication method? (JWT/OAuth/SSO/MFA). Which encryption standard? (AES-256/RSA). Any compliance requirements? (GDPR/PCI/HIPAA)"
+    },
+    "scalability": {
+      "vague_terms": [
+        "scalable",
+        "handles lots of users",
+        "grows with us",
+        "big traffic",
+        "scales well",
+        "handles load"
+      ],
+      "required_fields": [
+        "peak_concurrent_users",
+        "data_volume_gb",
+        "growth_rate_percent"
+      ],
+      "template": "The system SHALL support [N] concurrent users, [X] GB data, scaling to [M]% annual growth.",
+      "example": "The system SHALL support 5,000 concurrent users, 500 GB data, scaling to 150% annual growth.",
+      "follow_up": "How many users simultaneously at peak? How much data (GB) at launch and Year 3? What is the expected annual growth %?"
+    },
+    "availability": {
+      "vague_terms": [
+        "always available",
+        "no downtime",
+        "reliable",
+        "stable",
+        "never go down",
+        "24/7"
+      ],
+      "required_fields": [
+        "uptime_sla_percent",
+        "rto_minutes",
+        "rpo_minutes"
+      ],
+      "template": "The system SHALL maintain [X]% uptime, RTO of [N] min, RPO of [M] min.",
+      "example": "The system SHALL maintain 99.9% uptime (43 min/month allowed), RTO 15 min, RPO 5 min.",
+      "follow_up": "What uptime % do you need? (99%, 99.9%, 99.99%). If the system fails, how quickly must it recover? (RTO). How much data can you afford to lose? (RPO)"
+    },
+    "usability": {
+      "vague_terms": [
+        "user friendly",
+        "easy to use",
+        "simple",
+        "intuitive",
+        "clean ui"
+      ],
+      "required_fields": [
+        "task_completion_time",
+        "error_rate",
+        "accessibility_standard"
+      ],
+      "template": "New users SHALL complete [key task] in under [X] minutes with an error rate below [Y]%. WCAG [level] accessibility.",
+      "example": "New users SHALL complete checkout in under 3 minutes with < 5% error rate. WCAG 2.1 AA compliance.",
+      "follow_up": "How long should a new user take to complete the core task? What accessibility standard do you need? (WCAG 2.1 A/AA/AAA)"
+    },
+    "reliability": {
+      "vague_terms": [
+        "reliable",
+        "consistent",
+        "dependable",
+        "accurate",
+        "correct"
+      ],
+      "required_fields": [
+        "error_rate",
+        "data_accuracy_percent",
+        "mtbf_hours"
+      ],
+      "template": "The system SHALL have < [X]% error rate, [Y]% data accuracy, MTBF of [N] hours.",
+      "example": "The system SHALL have < 0.1% transaction error rate, 99.99% data accuracy, MTBF of 720 hours.",
+      "follow_up": "What is the acceptable error rate (%)? What level of data accuracy is required? What is the acceptable Mean Time Between Failures?"
+    },
+    "maintainability": {
+      "vague_terms": [
+        "maintainable",
+        "easy to change",
+        "flexible",
+        "modular",
+        "clean code"
+      ],
+      "required_fields": [
+        "deployment_frequency",
+        "test_coverage_percent",
+        "doc_standard"
+      ],
+      "template": "The codebase SHALL have [X]% test coverage, support [N] deploys/day, documented to [standard].",
+      "example": "The codebase SHALL have 80% test coverage, support 5 deploys/day, documented with OpenAPI + JSDoc.",
+      "follow_up": "What test coverage % is required? How frequently will you deploy? What documentation standards apply?"
+    }
+  },
+  "gap_checklist": {
+    "critical": [
+      {
+        "id": "G-C1",
+        "gate": "problem",
+        "check": "problem_statement",
+        "question": "What is the core problem this product solves?"
+      },
+      {
+        "id": "G-C2",
+        "gate": "users",
+        "check": "primary_user_type",
+        "question": "Who is the primary user of this system?"
+      },
+      {
+        "id": "G-C3",
+        "gate": "features",
+        "check": "functional_count",
+        "question": "What are the 3 most critical features?"
+      },
+      {
+        "id": "G-C4",
+        "gate": "scale",
+        "check": "peak_users_defined",
+        "question": "How many users do you expect at peak? (number required)"
+      },
+      {
+        "id": "G-C5",
+        "gate": "auth",
+        "check": "auth_method_defined",
+        "question": "How will users authenticate? (OAuth/JWT/SSO/MFA)"
+      },
+      {
+        "id": "G-C6",
+        "gate": "data",
+        "check": "core_entities_defined",
+        "question": "What is the main data entity your app manages?"
+      },
+      {
+        "id": "G-C7",
+        "gate": "security",
+        "check": "security_is_smart",
+        "question": "Define security: what auth method, encryption standard, and compliance?"
+      },
+      {
+        "id": "G-C8",
+        "gate": "performance",
+        "check": "perf_is_smart",
+        "question": "Define performance: response time (ms) at which percentile, under how many users?"
+      },
+      {
+        "id": "G-C9",
+        "gate": "availability",
+        "check": "sla_defined",
+        "question": "What is your required uptime SLA? (e.g., 99.9%)  What is your RTO?"
+      },
+      {
+        "id": "G-C10",
+        "gate": "timeline",
+        "check": "go_live_date",
+        "question": "What is your target go-live date for v1?"
+      }
+    ],
+    "important": [
+      {
+        "id": "G-I1",
+        "gate": "integrations",
+        "check": "integrations_listed",
+        "question": "What external services must this integrate with? (payments, email, APIs)"
+      },
+      {
+        "id": "G-I2",
+        "gate": "roles",
+        "check": "roles_permissions",
+        "question": "What roles exist beyond 'user' and 'admin'? What can each do?"
+      },
+      {
+        "id": "G-I3",
+        "gate": "acceptance",
+        "check": "acceptance_criteria",
+        "question": "For each feature, what is the done condition? (acceptance criteria)"
+      },
+      {
+        "id": "G-I4",
+        "gate": "data_retention",
+        "check": "retention_defined",
+        "question": "How long must data be retained? Are there legal requirements?"
+      },
+      {
+        "id": "G-I5",
+        "gate": "error_handling",
+        "check": "error_flows_defined",
+        "question": "What happens when key actions fail? Describe the error recovery flow."
+      },
+      {
+        "id": "G-I6",
+        "gate": "notifications",
+        "check": "notifications_defined",
+        "question": "What notifications does the system send and via which channel? (email/SMS/push)"
+      },
+      {
+        "id": "G-I7",
+        "gate": "scope_boundary",
+        "check": "out_of_scope_defined",
+        "question": "What is explicitly OUT of scope for v1?"
+      },
+      {
+        "id": "G-I8",
+        "gate": "reporting",
+        "check": "reporting_defined",
+        "question": "What reports or analytics do users need to see?"
+      }
+    ],
+    "nice_to_have": [
+      {
+        "id": "G-N1",
+        "gate": "internationalisation",
+        "check": "i18n",
+        "question": "Does the product need multiple languages or currencies?"
+      },
+      {
+        "id": "G-N2",
+        "gate": "accessibility",
+        "check": "a11y",
+        "question": "What accessibility standard is required? (WCAG 2.1 A/AA)"
+      },
+      {
+        "id": "G-N3",
+        "gate": "offline",
+        "check": "offline_support",
+        "question": "Does the app need to work offline? (relevant for mobile/IoT)"
+      },
+      {
+        "id": "G-N4",
+        "gate": "migration",
+        "check": "data_migration",
+        "question": "Is there existing data that needs to be migrated into this new system?"
+      },
+      {
+        "id": "G-N5",
+        "gate": "versioning",
+        "check": "api_versioning",
+        "question": "What is the API versioning strategy? (URL versioning, header versioning)"
+      }
+    ]
+  },
+  "autonomous_decisions": {
+    "database": {
+      "micro": {
+        "primary": "SQLite",
+        "reason": "Zero-config, single-file DB ideal for prototypes and single-user tools.",
+        "cache": "None"
+      },
+      "small": {
+        "primary": "PostgreSQL",
+        "reason": "ACID-compliant relational DB is ideal for small structured datasets.",
+        "cache": "Redis (optional)"
+      },
+      "medium": {
+        "primary": "PostgreSQL + Redis",
+        "reason": "Relational DB with caching layer handles 5k-50k users efficiently.",
+        "cache": "Redis"
+      },
+      "large": {
+        "primary": "PostgreSQL + MongoDB + Redis",
+        "reason": "Hybrid approach: relational for transactions, document store for flexible schemas.",
+        "cache": "Redis Cluster"
+      },
+      "enterprise": {
+        "primary": "Multi-region PostgreSQL + Cassandra",
+        "reason": "Relational for OLTP, Cassandra for massive write throughput at enterprise scale.",
+        "cache": "Redis Sentinel"
+      }
+    },
+    "hosting": {
+      "micro": {
+        "platform": "Render / Railway / Vercel",
+        "reason": "Free-tier friendly, zero-ops deployment for prototypes.",
+        "ha": false
+      },
+      "small": {
+        "platform": "Single VPS / Heroku",
+        "reason": "Cost-effective for small user base.",
+        "ha": false
+      },
+      "medium": {
+        "platform": "AWS EC2 Auto-Scaling / GCP Cloud Run",
+        "reason": "Managed scaling handles traffic spikes.",
+        "ha": true
+      },
+      "large": {
+        "platform": "AWS EKS / GCP GKE (Kubernetes)",
+        "reason": "Container orchestration for large-scale reliability.",
+        "ha": true
+      },
+      "enterprise": {
+        "platform": "Multi-region Kubernetes + CDN",
+        "reason": "Geographic distribution for 99.99% SLA.",
+        "ha": true
+      }
+    },
+    "auth": {
+      "default": "JWT + Refresh tokens",
+      "if_enterprise": "OAuth 2.0 / SAML SSO (Okta / Azure AD)",
+      "if_pii_data": "OAuth 2.0 + MFA",
+      "if_fintech": "OAuth 2.0 + MFA + HSM + Audit Logs",
+      "if_healthtech": "SMART on FHIR + MFA",
+      "if_b2b": "SAML 2.0 / OpenID Connect (SSO)",
+      "if_gaming": "Social Auth (Google/Apple/Facebook)"
+    },
+    "api_style": {
+      "simple_crud": "REST (OpenAPI 3.0)",
+      "real_time": "REST + WebSocket (Socket.io)",
+      "complex_queries": "GraphQL (Apollo)",
+      "microservices": "REST + gRPC (inter-service)",
+      "iot": "MQTT + REST",
+      "mobile": "REST + GraphQL (optimised payloads)"
+    },
+    "frontend": {
+      "web_only": "React.js + TypeScript",
+      "mobile_required": "React Native + Expo (iOS + Android)",
+      "dashboard_heavy": "React.js + Recharts / D3.js",
+      "cms_required": "Next.js (SSR/SSG)",
+      "internal_tool": "React Admin / Next.js",
+      "realtime_heavy": "React + Socket.io + SWR"
+    },
+    "search": {
+      "basic": "PostgreSQL full-text search",
+      "medium": "Typesense (simple, fast)",
+      "advanced": "Elasticsearch / OpenSearch"
+    },
+    "message_queue": {
+      "simple": "Redis Bull Queue",
+      "medium": "RabbitMQ",
+      "enterprise": "Apache Kafka"
+    },
+    "file_storage": {
+      "small": "Local FS / Cloudinary",
+      "medium": "AWS S3 / GCS",
+      "enterprise": "AWS S3 + CloudFront CDN"
+    }
+  },
+  "discovery_questions": {
+    "sequence": [
+      {
+        "id": "DQ-01",
+        "gate": "project_type",
+        "question": "In one sentence — what does your product DO for the end user? What problem does it solve?",
+        "follow_up": "Is this a consumer app, a B2B SaaS, an internal tool, a marketplace, or something else?",
+        "smart_required": false,
+        "why_asked": "Determines the PRD type and which gate checklist to apply"
+      },
+      {
+        "id": "DQ-02",
+        "gate": "users",
+        "question": "Who are all the different types of people who will use this system? (list them all)",
+        "follow_up": "For each user type, what is their single most important goal in the app?",
+        "smart_required": false,
+        "why_asked": "Identifies all actors needed for FR ownership and RBAC design"
+      },
+      {
+        "id": "DQ-03",
+        "gate": "features",
+        "question": "Walk me through the 3 most critical things a user does from the moment they sign up to when they get value.",
+        "follow_up": "Which ONE of these is the core feature — the reason they'd pay for it?",
+        "smart_required": false,
+        "why_asked": "Extracts core FRs and identifies the value proposition"
+      },
+      {
+        "id": "DQ-04",
+        "gate": "scale",
+        "question": "How many users do you expect at peak — simultaneously using the system at the same time?",
+        "follow_up": "In Year 1? Year 3? Where are they geographically?",
+        "smart_required": true,
+        "smart_type": "scalability",
+        "why_asked": "Drives autonomous DB, hosting, and architecture pattern decisions"
+      },
+      {
+        "id": "DQ-05",
+        "gate": "performance",
+        "question": "When a user performs the most critical action, how fast must the system respond? Give me a number.",
+        "follow_up": "What % of requests must meet this target? (P50 = 50%, P95 = 95%, P99 = 99%)",
+        "smart_required": true,
+        "smart_type": "performance",
+        "why_asked": "Locks down the NFR performance gate with a measurable SLA"
+      },
+      {
+        "id": "DQ-06",
+        "gate": "data",
+        "question": "What is the core data entity your system creates, stores, and manages?",
+        "follow_up": "Is any data sensitive? (financial transactions, personal health records, PII, biometrics)",
+        "smart_required": false,
+        "why_asked": "Identifies data model complexity, retention, and compliance needs"
+      },
+      {
+        "id": "DQ-07",
+        "gate": "security",
+        "question": "Who must NOT access what? Describe your access control requirements.",
+        "follow_up": "Are you subject to any legal or industry compliance? (GDPR, PCI-DSS, HIPAA, SOX, ISO 27001)",
+        "smart_required": true,
+        "smart_type": "security",
+        "why_asked": "Defines auth model and compliance framework for the PRD"
+      },
+      {
+        "id": "DQ-08",
+        "gate": "integrations",
+        "question": "What external services must this product connect to? (payment processors, maps, SMS, email, AI models, ERPs, existing APIs)",
+        "follow_up": "Do you have legacy systems this must sync with?",
+        "smart_required": false,
+        "why_asked": "Identifies integration dependencies and potential blockers"
+      },
+      {
+        "id": "DQ-09",
+        "gate": "availability",
+        "question": "What happens to your business if this system is down for 1 hour? For 24 hours?",
+        "follow_up": "What uptime % do you require? If the system crashes, how quickly must it recover?",
+        "smart_required": true,
+        "smart_type": "availability",
+        "why_asked": "Defines SLA, RTO, RPO for the infrastructure design"
+      },
+      {
+        "id": "DQ-10",
+        "gate": "timeline",
+        "question": "When does v1 need to be live? Is there an external hard deadline?",
+        "follow_up": "What comes in Phase 2? What is your team size / budget constraint?",
+        "smart_required": false,
+        "why_asked": "Enables scope prioritisation and MVP boundary definition"
+      }
+    ],
+    "gap_followups": {
+      "missing_acceptance_criteria": "For the feature '{feature}' — what is the exact condition that makes it 'done'? What should a tester verify?",
+      "missing_error_flows": "What happens if '{action}' fails? How does the user recover?",
+      "missing_roles_detail": "What can a '{role}' do that a regular user cannot? List their specific permissions.",
+      "missing_data_retention": "How long must '{entity}' data be kept? Is there a legal requirement for deletion?",
+      "vague_non_functional": "You said '{term}' — give me a number. What does that mean in measurable terms?",
+      "missing_notification": "How does the system notify users about '{event}'? Email, SMS, push, or in-app?",
+      "missing_offline": "Does the app need to work without internet? If so, what features must work offline?",
+      "missing_migration": "Is there existing data that needs to move into the new system? From what source?"
+    }
+  },
+  "tech_jargon_signals": [
+    "api",
+    "rest",
+    "graphql",
+    "microservice",
+    "kubernetes",
+    "docker",
+    "ci/cd",
+    "oauth",
+    "jwt",
+    "saml",
+    "webhook",
+    "async",
+    "latency",
+    "throughput",
+    "nosql",
+    "postgresql",
+    "mongodb",
+    "redis",
+    "kafka",
+    "sla",
+    "rto",
+    "rpo",
+    "cdc",
+    "iac",
+    "terraform",
+    "lambda",
+    "serverless",
+    "cdn",
+    "cors",
+    "ssl",
+    "tls",
+    "orm",
+    "migration",
+    "endpoint",
+    "payload",
+    "schema",
+    "indexing",
+    "replication",
+    "sharding",
+    "load balancer",
+    "autoscaling",
+    "cache",
+    "message queue",
+    "event driven",
+    "cqrs",
+    "saga pattern",
+    "circuit breaker",
+    "grpc",
+    "protobuf",
+    "openapi",
+    "swagger",
+    "websocket",
+    "mqtt",
+    "sse",
+    "pub/sub",
+    "etl",
+    "dbt",
+    "airflow",
+    "spark",
+    "flink",
+    "snowflake",
+    "bigquery",
+    "redshift",
+    "datalake",
+    "mlops",
+    "pytorch",
+    "tensorflow",
+    "triton",
+    "kubeflow",
+    "feature store"
+  ],
+  "compliance_map": {
+    "fintech": [
+      "PCI-DSS Level 1",
+      "SOX",
+      "GLBA",
+      "ISO 27001",
+      "AML/KYC"
+    ],
+    "healthtech": [
+      "HIPAA",
+      "HITECH",
+      "HL7 FHIR R4",
+      "ISO 13485",
+      "FDA 21 CFR Part 11"
+    ],
+    "ecommerce": [
+      "PCI-DSS",
+      "GDPR",
+      "CCPA",
+      "VAT/GST compliance"
+    ],
+    "general": [
+      "GDPR",
+      "ISO 27001",
+      "SOC 2 Type II"
+    ],
+    "government": [
+      "FedRAMP",
+      "FISMA",
+      "NIST 800-53",
+      "Section 508"
+    ],
+    "gaming": [
+      "COPPA (if under-13)",
+      "GDPR",
+      "IARC ratings"
+    ],
+    "data_platform": [
+      "GDPR",
+      "CCPA",
+      "SOC 2",
+      "ISO 27001"
+    ],
+    "ai_ml": [
+      "EU AI Act (high-risk)",
+      "GDPR Art. 22 (automated decisions)",
+      "ISO/IEC 42001"
+    ]
+  },
+  "architecture_patterns": {
+    "monolith": {
+      "best_for": "MVPs, single team, < 5k users, < 6 months timeline",
+      "pros": [
+        "Fast to build",
+        "Simple deployment",
+        "Low operational overhead"
+      ],
+      "cons": [
+        "Hard to scale independently",
+        "Tech debt accumulates"
+      ],
+      "when_to_upgrade": "When team grows beyond 5 engineers or you hit performance ceilings"
+    },
+    "modular_monolith": {
+      "best_for": "Growing startups, 5k-50k users, 1-2 year horizon",
+      "pros": [
+        "Organised code boundaries",
+        "Easier future service extraction"
+      ],
+      "cons": [
+        "Still single deployment unit"
+      ]
+    },
+    "microservices": {
+      "best_for": "Scale > 50k users, multiple teams, 3+ services with different scaling needs",
+      "pros": [
+        "Independent scaling",
+        "Technology diversity",
+        "Fault isolation"
+      ],
+      "cons": [
+        "Operational complexity",
+        "Distributed tracing needed",
+        "Higher latency"
+      ]
+    },
+    "serverless": {
+      "best_for": "Event-driven workflows, variable/spiky traffic, small ops teams",
+      "pros": [
+        "Zero server management",
+        "Pay-per-execution",
+        "Auto-scales to zero"
+      ],
+      "cons": [
+        "Cold start latency",
+        "Vendor lock-in",
+        "Complex local dev"
+      ]
+    },
+    "event_driven": {
+      "best_for": "Async workflows, audit trails, real-time pipelines, > 100k TPS",
+      "pros": [
+        "Decoupling",
+        "Audit trail built-in",
+        "Handles traffic spikes gracefully"
+      ],
+      "cons": [
+        "Eventual consistency",
+        "Harder to debug",
+        "Message ordering challenges"
+      ]
+    }
+  },
+  "nfr_templates": {
+    "performance": "The system SHALL respond to [action] in < [X] ms at the P[N] percentile under [U] concurrent users.",
+    "availability": "The system SHALL maintain [X]% uptime, with RTO < [N] minutes and RPO < [M] minutes.",
+    "security": "The system SHALL enforce [auth] authentication, [enc] encryption at rest and in transit, compliant with [standard].",
+    "scalability": "The system SHALL support [N] concurrent users and [X] GB data volume with [Y]% annual growth capacity.",
+    "data_retention": "The system SHALL retain [entity] data for [N] years and support deletion requests within [M] days per [standard].",
+    "backup": "The system SHALL perform automated backups every [N] hours with [M] days retention and < [X] hour restore SLA.",
+    "rate_limiting": "The API SHALL limit each client to [N] requests per [window] and return HTTP 429 with Retry-After header.",
+    "audit_log": "The system SHALL maintain immutable audit logs for all [actions] for [N] years, searchable within [X] seconds.",
+    "accessibility": "The UI SHALL comply with WCAG 2.1 [Level] AA, supporting screen readers and keyboard-only navigation.",
+    "i18n": "The system SHALL support [languages] locales with RTL support where applicable, using [i18n library]."
+  },
+  "persona_update_prompts": {
+    "CTO": "Focus on architectural changes, technology stack evolution, performance improvements, and security upgrades. Note breaking changes.",
+    "PM": "Focus on feature additions, scope changes, user story updates, and milestone shifts. Note any descoping decisions.",
+    "Dev": "Focus on implementation detail changes, API contract changes, data model evolution, and acceptance criteria updates.",
+    "QA": "Focus on new test scenarios, changed acceptance criteria, regression risk areas, and new edge cases introduced.",
+    "Investor": "Focus on scope changes impacting timeline or budget, new risk factors, and changes to the core value proposition.",
+    "Client": "Focus on what changed in the feature list, what was added, removed, or postponed, and how it affects the delivery plan."
+  },
+  "gate_questions": {
+    "_comment": "User-friendly discovery questions keyed by gate name. LLM-generated entries are appended here automatically.",
+    "project_identity": "What problem does your product solve, and who are its main users?",
+    "scope": "What are the 3–5 core things users need to do with it? And what is explicitly OUT of scope for v1?",
+    "users_roles": "Who are the different types of people using this system? (e.g. customer, admin, vendor) — and what does each one need to do?",
+    "features": "What are the key features users must have from day one?",
+    "features_detail": "Describe the 3–5 must-have features in a bit more detail — what should each one do?",
+    "platform": "Should this be a website, a mobile app, or both?",
+    "scale": "How many users do you expect in the first 6–12 months?",
+    "timeline": "What is your target launch date or deadline?",
+    "integrations": "Do you need to connect to any external services? (e.g. payments, SMS, maps, email, Google/Facebook login) — or say 'none' if not applicable.",
+    "security": "Are there any security or data-privacy requirements? (e.g. data must stay in India, GDPR compliance, login required)",
+    "performance": "Do you have any speed or reliability requirements? (e.g. page loads in under 2 seconds, must be available 24/7)",
+    "data": "What is the main data your system manages? (e.g. user orders, patient records, bookings) — and is any of it sensitive?",
+    "availability": "What level of uptime does the system need? (e.g. 99.9% — meaning at most ~8 hours downtime per year)",
+    "scalability": "How much do you expect usage to grow over the next 1–2 years? Any expected traffic spikes?",
+    "data_model": "What are the main objects or entities in your system? (e.g. User, Order, Product, Booking)",
+    "billing": "Will users pay for this product? If yes, how? (one-time, monthly subscription, pay-per-use, freemium)",
+    "roles": "What different permission levels do you need? (e.g. free user, premium user, admin, super-admin)",
+    "offline_support": "Does the app need to work offline or with poor internet connectivity?",
+    "push_notifications": "Do users need to receive push notifications? What kinds of alerts?",
+    "device_compatibility": "Which devices and operating systems must it support? (e.g. iOS 15+, Android 12+, specific screen sizes)",
+    "app_store": "Do you plan to publish on the Apple App Store or Google Play Store?",
+    "endpoints": "What are the main API operations needed? (e.g. create user, get orders, process payment)",
+    "auth": "How should the API be secured? (e.g. API keys, OAuth 2.0, JWT tokens)",
+    "rate_limiting": "Do you need rate limiting on the API? How many requests per minute should a client be allowed?",
+    "versioning": "Do you need to support multiple API versions simultaneously? (e.g. v1 and v2 live at the same time)",
+    "documentation": "What level of API documentation is needed? (e.g. auto-generated Swagger docs, a developer portal, code examples)",
+    "sla": "What service-level agreements (SLAs) does the API need to meet? (uptime, latency, support response time)",
+    "data_contracts": "What data formats does the API exchange? (JSON, XML, Protobuf) — and are there strict schema requirements?",
+    "catalog": "How will products be organised? (categories, tags, variants like size/colour)",
+    "cart_checkout": "Describe the buying flow — how does a customer go from browsing to completing a purchase?",
+    "payment": "Which payment methods do you need? (credit/debit card, UPI, wallets, buy-now-pay-later, COD)",
+    "inventory": "How is stock managed? Do you need real-time inventory tracking, low-stock alerts, or warehouse management?",
+    "orders": "What does the order lifecycle look like? (placed → confirmed → packed → shipped → delivered → returned)",
+    "shipping": "How will shipping work? Self-managed, third-party couriers, or both? Do you need live tracking?",
+    "returns": "What is the return and refund policy, and how will it be handled in the system?",
+    "tax": "Do you need automated tax calculation? Which regions/countries do you sell to?",
+    "pci_compliance": "Will you store or process card data directly? (This affects PCI-DSS compliance requirements)",
+    "transactions": "What types of financial transactions will the system process? (transfers, payments, withdrawals, reconciliation)",
+    "kyc_aml": "Do you need user identity verification (KYC) or anti-money-laundering (AML) checks?",
+    "compliance": "Which regulations must the system comply with? (e.g. RBI guidelines, SEBI, GDPR, PCI-DSS, SOX)",
+    "audit_trail": "Do you need a full audit log of all transactions and user actions? How long must it be retained?",
+    "reconciliation": "How will financial reconciliation work? (daily, real-time, automated vs manual sign-off)",
+    "reporting": "What reports and dashboards are needed? Who sees them and how often?",
+    "fraud_detection": "Do you need fraud detection or risk scoring? What triggers a fraud alert?",
+    "patient_data": "What patient data will be stored? (diagnoses, prescriptions, lab results, insurance info)",
+    "hipaa": "Do you operate in the US? HIPAA compliance will be required for patient data — are you aware of this?",
+    "access_control": "Who can see which data? (e.g. a doctor sees all patients, a nurse sees only assigned patients)",
+    "data_retention": "How long must data be kept, and what happens to it after that period?",
+    "integrations_hl7": "Do you need to integrate with hospital systems using HL7/FHIR standards? Which systems?",
+    "device_management": "How many IoT devices will be connected? How are they registered, configured, and monitored?",
+    "data_ingestion": "How frequently does device/sensor data arrive? (real-time stream, every minute, hourly batches)",
+    "real_time": "Which data or events need real-time processing? What is the acceptable latency?",
+    "offline_sync": "What happens when a device loses connectivity? How is data synced when it comes back online?",
+    "ota_updates": "Do devices need over-the-air (OTA) firmware/software updates? How are rollbacks handled?",
+    "device_security": "How are devices authenticated and secured? (device certificates, TPM, secure boot)",
+    "model_accuracy": "What accuracy or performance metric defines success for the AI/ML model? (e.g. >95% precision)",
+    "data_pipeline": "Where does training data come from? How is it collected, cleaned, and labelled?",
+    "training_infra": "What scale of training infrastructure is needed? (cloud GPUs, on-premise, specific hardware)",
+    "inference_latency": "What is the maximum acceptable response time for a model prediction? (e.g. under 200ms)",
+    "model_versioning": "How will model versions be managed and rolled back if a new version underperforms?",
+    "bias_fairness": "Are there fairness or bias requirements? (e.g. decisions must not discriminate by gender, race)",
+    "explainability": "Do predictions need to be explainable to end users or regulators? (e.g. 'why was this loan rejected?')",
+    "content_types": "What types of content will the system manage? (articles, videos, images, podcasts, PDFs)",
+    "workflow": "Describe the content lifecycle — how does content go from draft to published? Who approves?",
+    "media_management": "What image/video handling is needed? (uploads, resizing, CDN delivery, video transcoding)",
+    "seo": "What SEO requirements exist? (custom URLs, meta tags, sitemaps, structured data)",
+    "permissions": "Who can create, edit, publish, or delete content? Describe the content team roles.",
+    "delivery": "How is content delivered to end users? (website, mobile app, API, email newsletter)",
+    "rbac": "Describe the access roles needed — who can see, edit, approve, or delete what?",
+    "audit_log": "Do you need to log all user actions for compliance or debugging? How long are logs kept?",
+    "data_import_export": "Does the system need to import or export data in bulk? What file formats? (CSV, Excel, JSON)",
+    "sso": "Should users log in using their company accounts? (e.g. Google Workspace, Microsoft Azure AD, SAML)",
+    "buyer_flows": "Walk through the buyer journey — how do they discover, evaluate, and purchase?",
+    "seller_flows": "Walk through the seller journey — how do they list products/services and get paid?",
+    "matching": "How are buyers and sellers matched? (search/filter, algorithm recommendation, auction)",
+    "payments_escrow": "How is payment handled between buyers and sellers? Is escrow required before releasing funds?",
+    "ratings_reviews": "How do ratings and reviews work? Can both sides rate each other? How is abuse prevented?",
+    "trust_safety": "How do you prevent fraud, fake listings, or bad actors on the platform?",
+    "notifications": "What notifications do users receive and through which channels? (email, SMS, push, in-app)",
+    "game_loop": "Describe the core game loop — what does a player do in a typical session?",
+    "multiplayer_sync": "Is real-time multiplayer needed? How many players in a session? What latency is acceptable?",
+    "leaderboard": "What kind of leaderboards or rankings are needed? (global, friends, weekly, per-level)",
+    "anti_cheat": "What anti-cheat measures are needed? Are there competitive elements where cheating is a concern?",
+    "in_app_purchase": "What can players buy in-game? (cosmetics, power-ups, currency, battle pass)",
+    "cross_platform": "Which platforms must the game support? (PC, console, mobile, cross-play between them)",
+    "transformation": "How should raw data be cleaned, transformed, or enriched before it reaches analysts?",
+    "storage": "What volume of data needs to be stored? (GB/TB/PB) — and how long is it retained?",
+    "query_perf": "How fast must queries run? Are users running ad-hoc queries or fixed dashboards?",
+    "visualization": "What charts or dashboards are needed, and who are they for? (executives, analysts, operations)",
+    "freshness": "How up-to-date must the data be? (real-time, hourly refresh, daily batch)",
+    "_domain_overrides": {
+      "fintech": {
+        "security": "What security and compliance standards must be met? (PCI-DSS, ISO 27001, RBI, SEBI, SOX, GDPR)"
+      },
+      "healthtech": {
+        "security": "What healthcare data security standards apply? (HIPAA, HITECH, ISO 27799)"
+      },
+      "ecommerce": {
+        "payment": "Which payment methods and gateways do you need? (Stripe, Razorpay, PayPal, UPI, COD, EMI)"
+      },
+      "marketplace": {
+        "scale": "How many buyers and sellers do you expect in the first year? What does peak traffic look like?"
+      },
+      "mobile": {
+        "platform": "iOS only, Android only, or both? Any minimum OS version requirements?"
+      }
+    },
+    "user_authentication": "How do you envision users logging in to our food delivery website, and what kind of information would you like them to be able to store or access once they're authenticated?"
+  },
+  "version_diff_template": {
+    "summary_prompt": "Compare PRD v{old} and v{new}. List: (1) Features ADDED, (2) Features REMOVED/DESCOPED, (3) NFRs CHANGED, (4) Architecture CHANGED, (5) Timeline CHANGED. Be concise.",
+    "change_types": [
+      "feature_added",
+      "feature_removed",
+      "feature_modified",
+      "nfr_changed",
+      "architecture_changed",
+      "scope_changed",
+      "timeline_changed",
+      "compliance_added"
+    ]
+  }
+}

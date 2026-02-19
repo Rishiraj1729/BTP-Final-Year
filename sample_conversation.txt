@@ -1,0 +1,6 @@
+We need a web platform where our customers can log in and see their loan status.
+It should be very fast and secure, and ideally work on mobile as well.
+Admins must be able to review, approve, or reject loan applications.
+Customers should get an email notification when their loan status changes.
+We are okay to start only with the web version if mobile will delay the launch.
+
